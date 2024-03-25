@@ -1,0 +1,10 @@
+# output files
+out/
+dist-*
+
+# temporary files
+cache/
+temp/
+
+# URLs
+link.txt
