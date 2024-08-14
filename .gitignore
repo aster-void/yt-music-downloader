@@ -4,7 +4,7 @@ dist-*
 
 # temporary files
 cache/
-temp/
+tmp/
 
 # URLs
 link.txt
