@@ -9,7 +9,7 @@ idx=0
 for link in "${links[@]}"; do
   yt-dlp --paths "./tmp/rename" -- "$link" >/dev/null 2>&1
   mv ./tmp/rename/* "./tmp/in/$idx.mp4"
-  ffmpeg -i "./tmp/in/$idx.mp4" -acodec libmp3lame -aq 4 "./tmp/out/$idx.mp3" # >/dev/null 2>&1
+  ffmpeg -i "./tmp/in/$idx.mp4" -acodec libmp3lame -aq 4 "./tmp/out/$idx.mp3"
   echo "file './out/$idx.mp3'" >> ./tmp/concat.txt
 
   idx=$(calc "$idx+1" | tr -d " \t")

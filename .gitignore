@@ -6,5 +6,8 @@ dist-*
 cache/
 tmp/
 
+# cache
+/.direnv
+
 # URLs
 link.txt
