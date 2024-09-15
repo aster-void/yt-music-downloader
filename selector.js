@@ -1,0 +1,5 @@
+Array.from(document.querySelectorAll("a#video-title"))
+  .map((elem) => elem.getAttribute("href"))
+  .map((href) => href.split("&")[0])
+  .map((url) => `https://youtube.com/${url}`)
+  .join("\n")
