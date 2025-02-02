@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/usr/bin/env bash
 rm -r ./tmp
 mkdir -p tmp/out
 mkdir tmp/rename
 mkdir tmp/in
-links=(`cat link.txt`)
-total=$(cat link.txt | wc -l)
+links=($(cat link.txt))
+total=$(wc -l link.txt)
 idx=0
 for link in "${links[@]}"; do
   yt-dlp --paths "./tmp/rename" -- "$link" >/dev/null 2>&1
@@ -13,7 +13,7 @@ for link in "${links[@]}"; do
   echo "file './out/$idx.mp3'" >> ./tmp/concat.txt
 
   idx=$(calc "$idx+1" | tr -d " \t")
-  echo $idx out of $total done
+  echo "$idx out of $total done"
 done
 
 ffmpeg -f concat -safe 0 -i ./tmp/concat.txt -c copy ./tmp/out/concat.mp3
